@@ -19,6 +19,11 @@ export function listarPeliculas(parametros) {
     return pedir(`/peliculas?${query}`);
 }
 
+export function estadisticasPorGenero(parametros = {}) {
+    const query = new URLSearchParams(parametros).toString();
+    return pedir(`/peliculas/estadisticas${query ? `?${query}` : ""}`);
+}
+
 export function resenasDe(peliculaId) {
     return pedir(`/peliculas/${peliculaId}/resenas`);
 }
